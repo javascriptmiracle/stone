@@ -1,0 +1,293 @@
+.clear {
+  clear: both;
+}
+
+html,
+body,
+.page {
+  height: 100%;
+  margin: 0;
+}
+
+a:link,
+a:visited {
+  color: #1c1732;
+}
+
+.page {
+  font-family: "Roboto", sans-serif;
+}
+
+.content {
+  min-height: 100%;
+  margin-bottom: -150px;
+}
+
+.content__slider {
+  padding-bottom: 50px;
+}
+
+.content__partner-slider {
+  padding-bottom: 50px;
+}
+
+.content__contact {
+  padding-top: 40px;
+}
+
+.content__job {
+  padding-top: 40px;
+}
+
+.main-slider__text {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  width: 100%;
+}
+
+.image-slider {
+  position: relative;
+}
+
+.nav__item {
+  float: left;
+  padding-left: 20px;
+  margin: 30px 0;
+}
+
+.nav__item a {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.partner-slider__item {
+  padding-right: 50px;
+}
+
+.product-slider__item {
+  padding: 0 25px;
+}
+
+.main-title {
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.product {
+  background-color: #f8f8f8;
+}
+
+.about-text__item {
+  list-style: circle;
+  padding-bottom: 30px;
+}
+
+.about-text__text {
+  line-height: 1.5;
+  font-size: 1.3em;
+  padding-bottom: 10px;
+}
+
+.about-title__desc {
+  text-align: center;
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+.footer,
+.push {
+  height: 150px;
+}
+
+.footer {
+  border-top: 1px solid #666;
+  color: #000;
+  font-size: 14px;
+}
+
+.footer__inner {
+  padding-top: 40px;
+}
+
+.contact__name {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 20px 0;
+}
+
+.contact-list__item {
+  padding-bottom: 10px;
+  list-style-type: square;
+}
+
+.job-list__image {
+  float: left;
+  padding-right: 60px;
+  padding-bottom: 20px;
+}
+
+.job-list__image_last {
+  padding-right: 0;
+}
+
+.slider-text {
+  text-align: center;
+}
+
+.slider-text__title {
+  font-size: 90px;
+  line-height: 1.5;
+  color: #fff;
+  font-weight: bold;
+}
+
+.slider-text__desc {
+  font-size: 40px;
+  color: #fff;
+  padding-bottom: 40px;
+}
+
+.slider-text__link {
+  width: 250px;
+  margin: 0 auto;
+}
+
+.slider-text__link a {
+  color: #fff;
+  display: block;
+  background-color: #1c1732;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-decoration: none;
+}
+
+.footer-address__item {
+  padding-bottom: 10px;
+}
+
+.footer-contact__item {
+  padding-bottom: 10px;
+}
+
+a.current {
+  color: red;
+}
+
+a:hover {
+  color: red;
+}
+
+#form {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  position: relative;
+  top: 20%;
+}
+
+.button-text {
+  font-weight: 900;
+}
+
+.login-text {
+  font-size: 2em !important;
+}
+
+#name-field {
+  margin-bottom: 20px;
+}
+
+#email-field {
+  margin-bottom: 20px;
+}
+
+#textarea1 {
+  font-size: 1.5em !important;
+}
+
+.thank-you-modal {
+  height: 30% !important;
+}
+
+.input-field-text {
+  font-size: 1.5em !important;
+}
+
+/* label color */
+
+.input-field label {
+  color: #000;
+  margin-top: -10px;
+}
+
+/* label focus color */
+
+.input-field input[type="email"]:focus + label {
+  color: #000;
+}
+
+/* label underline focus color */
+
+.input-field input[type="email"]:focus {
+  border-bottom: 1px solid #000 !important;
+  box-shadow: 0 1px 0 0 #000 !important;
+}
+
+/* label focus color */
+
+.input-field input[type="email"]:focus + label {
+  color: #000;
+}
+
+/* label focus color */
+
+.input-field input[type="text"]:focus + label {
+  color: #000;
+}
+
+/* label underline focus color */
+
+.input-field input[type="text"]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+/* label focus color */
+
+.input-field textarea:focus + label {
+  color: #000 !important;
+}
+
+/* label underline focus color */
+
+.input-field textarea:focus {
+  border-bottom: 1px solid #000 !important;
+  box-shadow: 0 1px 0 0 #000 !important;
+}
+
+/* valid color */
+
+.input-field input[type="text"].valid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+/* invalid color */
+
+.input-field input[type="text"].invalid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+/* icon prefix focus color */
+
+.input-field .prefix.active {
+  color: #000;
+}
