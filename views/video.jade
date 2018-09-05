@@ -1,0 +1,37 @@
+extends block/layout.jade
+block content
+    .page
+        include block/header
+        .content
+            .content__job.container
+                .job
+                    .job__list
+                        .job-list
+                            ul
+                                li.job-list__image
+                                    video(controls width="300" height="300")
+                                        source(src="video/1.mov" type="video/mp4")
+                                li.job-list__image
+                                    video(controls width="300" height="300")
+                                        source(src="video/2.mov" type="video/mp4")
+                                //- li.job-list__image.job-list__image_last
+                                //-     video(controls width="300" height="300")
+                                //-         source(src="video/3.mov" type="video/mp4")
+                                //- li.job-list__image
+                                //-     video(controls width="300" height="300")
+                                //-         source(src="video/4.mov" type="video/mp4")
+                                //- li.job-list__image
+                                //-     video(controls width="300" height="300")
+                                //-         source(src="video/5.mov" type="video/mp4")                                
+                                                                                                       
+                                .clear
+
+
+        .push
+
+        include block/footer
+
+
+
+
+

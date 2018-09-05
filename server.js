@@ -1,5 +1,4 @@
 var express = require("express");
-var router = express.Router();
 const app = express();
 var path = require("path");
 var nodemailer = require("nodemailer");
@@ -7,9 +6,13 @@ var smtpTransport = require("nodemailer-smtp-transport");
 var index = require("./routes/home");
 var contact = require("./routes/contact");
 var job = require("./routes/job");
+var video = require("./routes/video");
+var product = require("./routes/product");
+var object = require("./routes/object");
 var bodyParser = require("body-parser");
-app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
+app.set("views", path.join(__dirname, "views"));
+
 app.set("view engine", "jade");
 
 const port = process.env.PORT || 5656;
@@ -54,6 +57,9 @@ app.get("/send", function(req, res) {
 app.use("/", index);
 app.use("/contact", contact);
 app.use("/job", job);
+app.use("/video", video);
+app.use("/product", product);
+app.use("/object", object);
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
