@@ -102,31 +102,26 @@ block content
 					.main-form__title
 						h1.mai-title(style="text-align: center") Написать нам
 				#form.container.center.z-depth-5
-					form#name-field.col.s12
-					
+					form#contact-form(action="send", method="post")
+										
 						.input-field.col.s12
-							input.input-field-text#name(type="text")
+							input.input-field-text#name(type="text" name="name")
 							label(for="name").login-text Имя
-					form#email-field.col.s12
+						
 						
 						.input-field.col.s12
-							input.input-field-text#user_email.validate(type="email")
+							input.input-field-text#user_email.validate(type="email" name="email")
 							label(for="email").login-text Email
-					form#message-field.col.s12
+					
 						
 						.input-field.col.s12
-							textarea#textarea1.materialize-textarea(type="text-area")
+							textarea#textarea1.materialize-textarea(type="text-area" name="message")
 							label(for="textarea1").login-text
 
-					a(href="#modal1")#send_email.waves-effect.waves-light.btn-large.homepage-buttons.button-text.center.modal-trigger.white-text.black Отправить Email
+						button(type="submit")	Отправить
 
 
-					#modal1.modal.modal-fixed-footer.thank-you-modal(style="z-index: 10000")
-						.modal-content
-							h4 Thank you
-							p Ваш е-мэйл отправлен.
-						.modal-footer
-							a(href="#").modal-action.modal-close.waves-effect.waves-green.btn-flat
+					
 		.push				
 		include block/footer
 

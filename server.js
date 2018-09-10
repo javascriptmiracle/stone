@@ -16,41 +16,57 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
 const port = process.env.PORT || 5656;
-app.use(bodyParser.urlencoded({ extended: false }));
-var smtpTransport = nodemailer.createTransport(smtpTransport, {
-  service: "Gmail",
-  auth: {
-    // enter your gmail account
-    user: "GMAIL_USER",
-    // enter your gmail password
-    pass: "GMAIL_PASS"
-  }
-});
-app.get("/send", function(req, res) {
-  var mailOptions = {
-    to: req.query.to,
-    subject: "Contact Form Message",
-    from: "Contact Form Request" + "<" + req.query.from + ">",
-    html:
-      "From: " +
-      req.query.name +
-      "<br>" +
-      "User's email: " +
-      req.query.user +
-      "<br>" +
-      "Message: " +
-      req.query.text
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.post("/send", (req, res) => {
+  const output = `
+    <p>You have a new contact request</p>
+    <h3>Contact Details</h3>
+    <ul>  
+      <li>Name: ${req.body.name}</li>
+      <li>Company: ${req.body.company}</li>
+      <li>Email: ${req.body.email}</li>
+      <li>Phone: ${req.body.phone}</li>
+    </ul>
+    <h3>Message</h3>
+    <p>${req.body.message}</p>
+  `;
+
+  // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    socketTimeout: 5000,
+    logger: true,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: "csimiracle@gmail.com", // generated ethereal user
+      pass: "miracle2017" // generated ethereal password
+    }
+  });
+
+  // setup email data with unicode symbols
+  let mailOptions = {
+    from: '"Nodemailer Contact" <your@email.com>', // sender address
+    to: "ooocsi2012@gmail.com", // list of receivers
+    subject: "Node Contact Request", // Subject line
+    text: "Hello world?", // plain text body
+    html: output // html body
   };
 
-  console.log(mailOptions);
-  smtpTransport.sendMail(mailOptions, function(err, response) {
-    if (err) {
-      console.log(err);
-      res.end("error");
-    } else {
-      console.log("Message sent: " + response.message);
-      res.end("sent");
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
     }
+    console.log("Message sent: %s", info.messageId);
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+    app.render("/", { msg: "Email has been sent" });
   });
 });
 
@@ -60,6 +76,7 @@ app.use("/job", job);
 app.use("/video", video);
 app.use("/product", product);
 app.use("/object", object);
+
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
