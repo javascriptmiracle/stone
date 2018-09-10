@@ -9,6 +9,7 @@ var job = require("./routes/job");
 var video = require("./routes/video");
 var product = require("./routes/product");
 var object = require("./routes/object");
+var send = require("./routes/send");
 var bodyParser = require("body-parser");
 app.use(express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "views"));
@@ -19,6 +20,13 @@ const port = process.env.PORT || 5656;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use("/", index);
+app.use("/contact", contact);
+app.use("/job", job);
+app.use("/video", video);
+app.use("/product", product);
+app.use("/object", object);
+app.use("/send", send);
 
 app.post("/send", (req, res) => {
   const output = `
@@ -66,20 +74,9 @@ app.post("/send", (req, res) => {
     console.log("Message sent: %s", info.messageId);
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
-    app.render("send", { msg: "Email has been sent" });
+    res.render("send", { msg: "Email has been sent" });
   });
 });
-
-app.get("/send", (req, res) => {
-  res.render("send");
-});
-
-app.use("/", index);
-app.use("/contact", contact);
-app.use("/job", job);
-app.use("/video", video);
-app.use("/product", product);
-app.use("/object", object);
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
