@@ -292,12 +292,12 @@ a:hover {
   color: #000;
 }
 
-img {
+.job-list img {
   transition: -webkit-transform 0.25s ease;
   transition: transform 0.25s ease;
 }
 
-img:active {
+.job-list img:active {
   -webkit-transform: scale(2.5);
   transform: scale(2.5);
 }
