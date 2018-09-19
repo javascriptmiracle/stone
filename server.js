@@ -16,7 +16,7 @@ app.set("views", path.join(__dirname, "views"));
 
 app.set("view engine", "jade");
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -77,6 +77,17 @@ app.post("/send", (req, res) => {
     res.render("send", { msg: "Email has been sent" });
   });
 });
+
+const sitemapOptions = {
+  root: __dirname + "/public/",
+  headers: {
+    "Content-Type": "text/xml;charset=UTF-8"
+  }
+};
+
+app.get("/sitemap.xml", (req, res) =>
+  res.status(200).sendFile("sitemap.xml", sitemapOptions)
+);
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
