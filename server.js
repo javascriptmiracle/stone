@@ -96,6 +96,16 @@ app.get("/favicon.ico", (req, res) =>
   res.status(200).sendFile("favicon.ico", faviconOptions)
 );
 
+const robotsOptions = {
+  root: __dirname + "/public/",
+  headers: {
+    "Content-Type": "text/plain;charset=UTF-8"
+  }
+};
+app.get("/robots.txt", (req, res) =>
+  res.status(200).sendFile("robots.txt", robotsOptions)
+);
+
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
