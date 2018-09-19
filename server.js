@@ -89,6 +89,13 @@ app.get("/sitemap.xml", (req, res) =>
   res.status(200).sendFile("sitemap.xml", sitemapOptions)
 );
 
+const faviconOptions = {
+  root: __dirname + "/public/"
+};
+app.get("/favicon.ico", (req, res) =>
+  res.status(200).sendFile("favicon.ico", faviconOptions)
+);
+
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
