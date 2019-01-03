@@ -16,7 +16,7 @@ app.set("views", path.join(__dirname, "views"));
 
 app.set("view engine", "jade");
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -30,15 +30,15 @@ app.use("/send", send);
 
 app.post("/send", (req, res) => {
   const output = `
-    <p>You have a new contact request</p>
-    <h3>Contact Details</h3>
+    <p>У вас есть новый контактный запрос</p>
+    <h3>Контактная информация</h3>
     <ul>  
-      <li>Name: ${req.body.name}</li>
-      <li>Company: ${req.body.company}</li>
-      <li>Email: ${req.body.email}</li>
-      <li>Phone: ${req.body.phone}</li>
+      <li>Имя: ${req.body.name}</li>
+      
+      <li>Почта: ${req.body.email}</li>
+      
     </ul>
-    <h3>Message</h3>
+    <h3>Сообщение</h3>
     <p>${req.body.message}</p>
   `;
 
@@ -60,7 +60,7 @@ app.post("/send", (req, res) => {
   // setup email data with unicode symbols
   let mailOptions = {
     from: '"Nodemailer Contact" <your@email.com>', // sender address
-    to: ["ooocsi2012@gmail.com", ""], // list of receivers
+    to: ["csimiracle@gmail.com", ""], // list of receivers
     subject: "Node Contact Request", // Subject line
     text: "Hello world?", // plain text body
     html: output // html body
